@@ -11,7 +11,7 @@ namespace OutlookInspired.Blazor.Server.Editors {
     public class HyperLinkPropertyEditor : StringPropertyEditor {
         public HyperLinkPropertyEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model) { }
         protected override RenderFragment CreateViewComponentCore(object dataContext) {
-            var displayValue = this.GetPropertyDisplayValue(dataContext);
+            var displayValue = this.GetPropertyDisplayValue(dataContext, ServiceProvider);
             var hyperLinkModel = new HyperlinkModel {
                 Text = displayValue,
                 Href = $"mailto:{displayValue}"
